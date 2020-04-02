@@ -26,6 +26,10 @@ namespace Artesaos\SEOTools\Contracts;
  *     '@type' => 'Organization',
  *     'name' => 'Artesaos',
  * ]));
+ * $seoTools->jsonLdMulti()->addValue('author', [
+ *     '@type' => 'Organization',
+ *     'name' => 'Artesaos',
+ * ]));
  *
  * // render HTML, it should be placed within 'head' HTML tag
  * echo $seoTools->generate();
@@ -49,39 +53,49 @@ namespace Artesaos\SEOTools\Contracts;
  *     '@type' => 'Organization',
  *     'name' => 'Artesaos',
  * ]));
+ * SEOTools::jsonLdMulti()->addValue('author', [
+ *     '@type' => 'Organization',
+ *     'name' => 'Artesaos',
+ * ]));
  *
  * // render HTML, it should be placed within 'head' HTML tag
  * echo SEOTools::generate();
  * ```
  *
- * @see \Artesaos\SEOTools\Contracts\MetaTags
- * @see \Artesaos\SEOTools\Contracts\OpenGraph
- * @see \Artesaos\SEOTools\Contracts\TwitterCards
- * @see \Artesaos\SEOTools\Contracts\JsonLd
+ * @see    \Artesaos\SEOTools\Contracts\MetaTags
+ * @see    \Artesaos\SEOTools\Contracts\OpenGraph
+ * @see    \Artesaos\SEOTools\Contracts\TwitterCards
+ * @see    \Artesaos\SEOTools\Contracts\JsonLd
+ * @see    \Artesaos\SEOTools\Contracts\JsonLdMulti
  *
  * @author `Vinicius Reis`
  */
 interface SEOTools
 {
     /**
-     * @return \Artesaos\SEOTools\Contracts\MetaTags
+     * @return MetaTags
      */
     public function metatags();
 
     /**
-     * @return \Artesaos\SEOTools\Contracts\OpenGraph
+     * @return OpenGraph
      */
     public function opengraph();
 
     /**
-     * @return \Artesaos\SEOTools\Contracts\TwitterCards
+     * @return TwitterCards
      */
     public function twitter();
 
     /**
-     * @return \Artesaos\SEOTools\Contracts\JsonLd
+     * @return JsonLd
      */
     public function jsonLd();
+
+    /**
+     * @return JsonLdMulti
+     */
+    public function jsonLdMulti();
 
     /**
      * Setup title for all seo providers.
